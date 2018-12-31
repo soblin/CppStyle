@@ -1,4 +1,4 @@
-# CppStyle
+# 個人用C++スタイルガイド
 
 [![Build Status](https://travis-ci.org/soblin/CppStyle.svg?branch=master)](https://travis-ci.org/soblin/CppStyle)
 
