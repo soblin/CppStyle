@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-# Google Test settings
 include(ExternalProject)
+
+# install path
+if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/lib/gtest)
+  file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib/gtest)
+endif()
 
 ExternalProject_Add(
   GTest
   URL https://github.com/google/googletest/archive/release-1.8.1.zip
-  PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/lib/
+  PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/lib/gtest/
   INSTALL_COMMAND ""
   LOG_DOWNLOAD ON
   )

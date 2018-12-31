@@ -2,6 +2,10 @@ project(CppStyle)
 
 cmake_minimum_required(VERSION 2.8.3)
 
+# External Project
+include(cmake/gtest.cmake)
+#include(cmake/pybind11.cmake)
+
 # for compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -30,6 +34,5 @@ target_link_libraries(runtime2 ${PROJECT_NAME})
 # testing
 if(NOT without-test)
   enable_testing()
-  include(cmake/gtest.cmake)
   add_subdirectory(test)
 endif()
