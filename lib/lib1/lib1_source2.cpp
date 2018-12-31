@@ -1,6 +1,6 @@
 #include <project_name/lib1/lib1_header2.h>
 
-namespace project_name{
+namespace project_name {
 
 ClassLibrary2::ClassLibrary2() {}
 

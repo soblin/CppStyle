@@ -5,10 +5,10 @@
 #include <project_name/lib2/lib2_header1.h>
 #include <project_name/lib2/lib2_header2.h>
 
-namespace project_name{
+namespace project_name {
 
 class ClassLibrary2 {
- public:
+public:
   ClassLibrary2();
 };
 
