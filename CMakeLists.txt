@@ -2,12 +2,13 @@ project(CppStyle)
 
 cmake_minimum_required(VERSION 2.8.3)
 
+# for compile_commands.json
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # External Project
 include(cmake/gtest.cmake)
 #include(cmake/pybind11.cmake)
 
-# for compile_commands.json
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # you can include <project_name/lib1/lib1_header.h>
 include_directories(

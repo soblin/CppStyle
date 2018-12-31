@@ -16,4 +16,4 @@ ExternalProject_Add(
   )
 
 ExternalProject_Get_Property(PyBind11 source_dir)
-include_directories(${source_dir}/googletest/include)
+include_directories(${source_dir}/include)
