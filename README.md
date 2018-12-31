@@ -53,7 +53,7 @@ CMakeLists.txtで`include`を`include_directories`に指定すれば, `#include 
 
 ## コード例
 
-```
+```cpp
 namespace project_name{
 
 class ClassDefinition{
@@ -64,15 +64,19 @@ public:
 private:
     // begin with 'm'
     // and later UpperCamel form
-    T1 mMember1;
-    T2 mMember2;
-    T3 mMember3;
+    T1 mMemberOne;
+    T2 mMemberTwo;
+    T3 mMemberOther;
     
 public:
     // getters
-    inline T1 Member1() const { return mMember1; }
-    inline T2 Member2() const { return mMember2; }
-    inline T3 Member3() const { return mMember3; }
+    inline T1 MemberOne() const { return mMemberOne; }
+    inline T2 MemberTwo() const { return mMemberTwo; }
+    inline T3 MemberOther() const { return mMemberOther; }
+    inline const T1 &MemberOne() const { return mMemberOne; }
+    inline const T2 &MemberTwo() const { return mMemberTwo; }
+    inline const T3 &MemberOther() const { return mMemberOther; }
+
 
 public:
     ClassDefinition();
