@@ -70,13 +70,15 @@ private:
     
 public:
     // getters
-    inline T1 MemberOne() const { return mMemberOne; }
-    inline T2 MemberTwo() const { return mMemberTwo; }
-    inline T3 MemberOther() const { return mMemberOther; }
+    inline T1 GetMemberOne() const { return mMemberOne; }
+    inline T2 GetMemberTwo() const { return mMemberTwo; }
+    inline T3 GetMemberOther() const { return mMemberOther; }
     inline const T1 &MemberOne() const { return mMemberOne; }
     inline const T2 &MemberTwo() const { return mMemberTwo; }
     inline const T3 &MemberOther() const { return mMemberOther; }
-
+    inline void SetMemberOne(T1 arg) { mMemberOne = arg; }
+    inline void SetMemberTwo(T2 arg) { mMemberTwo = arg; }
+    inline void SetMemberOther(T3 arg) { mMemberOther = arg; }
 
 public:
     ClassDefinition();
