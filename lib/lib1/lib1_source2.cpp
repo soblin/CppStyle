@@ -1,7 +1,7 @@
-#include <project_name/lib1/lib1_header2.h>
+#include <CppStyle/lib1/lib1_header2.h>
 
-namespace project_name {
+namespace CppStyle {
 
 ClassLibrary2::ClassLibrary2() {}
 
-} // namespace project_name
+} // namespace CppStyle
