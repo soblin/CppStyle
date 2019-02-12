@@ -14,7 +14,7 @@
 
 ## ディレクトリ構造
 
-以下の感じが今の所ベスト. llvmのレポジトリを参考にしている. 共通部分はすべてライブラリにまとめ, main()をsrc/runtime.cppに書いていく.
+以下の感じが今の所ベスト. llvmのレポジトリを参考にしている. 共通部分はすべてライブラリにまとめ, main()を含むものだけを`src/runtime.cpp`に書いていく. テストツールには`gtest`を使う.
 
 ```
 ├── .clang-format
@@ -54,14 +54,16 @@ CMakeLists.txtで`include`を`include_directories`に指定すれば, `#include 
 ## コード例
 
 ```cpp
-namespace project_name{
+namespace CppStyle{
 
 class ClassDefinition{
 public:
-     // begin with 's'
+    // static member
+    // begin with 's'
     static int sEntityCounter = 0;
     
 private:
+    // member variables
     // begin with 'm'
     // and later UpperCamel form
     T1 mMemberOne;
@@ -70,15 +72,12 @@ private:
     
 public:
     // getters
-    inline T1 GetMemberOne() const { return mMemberOne; }
-    inline T2 GetMemberTwo() const { return mMemberTwo; }
-    inline T3 GetMemberOther() const { return mMemberOther; }
-    inline const T1 &MemberOne() const { return mMemberOne; }
-    inline const T2 &MemberTwo() const { return mMemberTwo; }
-    inline const T3 &MemberOther() const { return mMemberOther; }
-    inline void SetMemberOne(T1 arg) { mMemberOne = arg; }
-    inline void SetMemberTwo(T2 arg) { mMemberTwo = arg; }
-    inline void SetMemberOther(T3 arg) { mMemberOther = arg; }
+    inline T1 getMemberOne() const { return mMemberOne; }
+    inline T2 getMemberTwo() const { return mMemberTwo; }
+    inline T3 getMemberOther() const { return mMemberOther; }
+    inline void setMemberOne(T1 arg) { mMemberOne = arg; }
+    inline void setMemberTwo(T2 arg) { mMemberTwo = arg; }
+    inline void setMemberOther(T3 arg) { mMemberOther = arg; }
 
 public:
     ClassDefinition();
@@ -91,5 +90,5 @@ public:
 };
 
 
-} // namespace project_name
+} // namespace CppStyle
 ```
