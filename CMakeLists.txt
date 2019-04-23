@@ -44,11 +44,7 @@ set(project_sources
 
 add_sources(${project_sources})
 get_property(all_sources GLOBAL PROPERTY SRCS_LIST)
-add_custom_target(format
-  COMMAND clang-format --style=file -i ${all_sources}
-  COMMENT "Running clnag-format"
-  VERBATIM)
-message("${all_sources}")
+
 # you can include <project_name/lib1/lib1_header.h>
 include_directories(
   include
@@ -75,4 +71,13 @@ target_link_libraries(runtime2 ${PROJECT_NAME})
 if(NOT without-test)
   enable_testing()
   add_subdirectory(test)
+endif()
+
+# clang-format
+find_program(CLANG_FORMAT_EXE clang-format)
+if(CLANG_FORMAT_EXE)
+  add_custom_target(format
+    COMMAND clang-format --style=file -i ${all_sources}
+    COMMENT "Running clnag-format"
+    VERBATIM)
 endif()
