@@ -8,7 +8,7 @@
 
 今までEmacsを使ってC++のプログラムを書いてきたが, デフォルトの補完機能は貧弱である. やはりチェッカーでシンタックスチェックを行いながらプログラムを書きたいので, `rtags`を使うようになった. `rtags`を使うにはプロジェクトのコンパイルコマンドが記された`compile_commands.json`が必要であるので, 自然とCMakeを利用してビルドするようになった.
 
-クラスのメソッドのコードを書く際は, メンバ変数を区別するために末尾にアンダーバーを付けたり, 始めに`m_`を付けたりと色々と試してきたが, `mMemberVariable`の形式にするのが一番わかり易いと感じた. `Class(MemberVariable) : mMemberVariable(MemberVariable) {}`のようにして仮引数と区別を付けるためである. またメンバ関数はlower-camel, クラス名はupper-camelにすることが経験的に多い. 
+クラスのメソッドのコードを書く際は, メンバ変数を区別するために末尾にアンダーバーを付けたり, 始めに`m_`を付けたりと色々と試してきたが, `_mMemberVariable`の形式にするのが一番わかり易いと感じた. `Class(memberVariable) : _memberVariable(MemberVariable) {}`のようにして仮引数と区別を付けるためである. またメンバ関数はlower-camel, クラス名はupper-camelにすることが経験的に多い. またオブジェクトの初期化にコンストラクタだけでは不十分であることが多い(遅延初期化などもあるので). そのため`initialize()`みたいなメソッドを持たせるのが良い.
 
 一旦今までの傾向をまとめておきたい.
 
@@ -66,18 +66,18 @@ private:
     // member variables
     // begin with 'm'
     // and later UpperCamel form
-    T1 mMemberOne;
-    T2 mMemberTwo;
-    T3 mMemberOther;
+    T1 _memberOne;
+    T2 _memberTwo;
+    T3 _memberOther;
     
 public:
     // getters
-    inline T1 getMemberOne() const { return mMemberOne; }
-    inline T2 getMemberTwo() const { return mMemberTwo; }
-    inline T3 getMemberOther() const { return mMemberOther; }
-    inline void setMemberOne(T1 arg) { mMemberOne = arg; }
-    inline void setMemberTwo(T2 arg) { mMemberTwo = arg; }
-    inline void setMemberOther(T3 arg) { mMemberOther = arg; }
+    inline T1 getMemberOne() const { return _memberOne; }
+    inline T2 getMemberTwo() const { return _memberTwo; }
+    inline T3 getMemberOther() const { return _memberOther; }
+    inline void setMemberOne(T1 arg) { _memberOne = arg; }
+    inline void setMemberTwo(T2 arg) { _memberTwo = arg; }
+    inline void setMemberOther(T3 arg) { _memberOther = arg; }
 
 public:
     ClassDefinition();
